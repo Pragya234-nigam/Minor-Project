@@ -6,9 +6,8 @@ const mySchema = new Schema({
     email: String,
     password: String,
     roll_no: String,
-    contact: String,
     clubName: String,
     createdAt: { type: Date, default: Date.now() }
 });
 
-module.exports = model('student', mySchema);
+module.exports = model('students', mySchema);

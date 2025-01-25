@@ -8,7 +8,12 @@ const clubList = [
   'BOOK CLUBS',
   'CULTURAL COMMITTEE',
   'DEBATE CLUB / QUIZ CLUB',
-  'TECH CLUB'
+  'TECH CLUB',
+  'SCIENCE & TECHNOLOGY CLUB',
+  'SPORTS CELL',
+  'ENTREPRENEURSHIP DEVELOPMENT CELL',
+  'ALUMINI CELL',
+  'PLACEMENT CELL'
 ]
 
 const Register = () => {
@@ -135,7 +140,7 @@ const Register = () => {
               htmlFor="Write your Clubs and Committees which you want to choose"
               className="mb-2 inline-block text-sm text-gray-800 sm:text-base"
             >
-              Write your Clubs and Committees which you want to choose*
+              Select your Clubs and Committees which you want to choose*
             </label>
             <select
               name="clubName"
