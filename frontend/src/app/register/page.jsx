@@ -77,6 +77,7 @@ const Register = () => {
             >
               First name*
             </label>
+            
             <input
               name="firstname"
               onChange={registerForm.handleChange}
