@@ -4,6 +4,20 @@ import { useFormik } from 'formik';
 import React from 'react'
 import toast from 'react-hot-toast';
 
+const speech = new SpeechSynthesisUtterance();
+
+  const voiceResponse = (e) => {
+    if(window.speechSynthesis.speaking){
+      window.speechSynthesis.cancel();
+      return;
+    }
+    console.log(e.target.innerText);
+    
+    speech.text = e.target.innerText;
+    window.speechSynthesis.speak(speech);
+  }
+
+
 const clubList = [
   'BOOK CLUBS',
   'CULTURAL COMMITTEE',
@@ -23,9 +37,10 @@ const Register = () => {
     initialValues: {
       firstname: '',
       lastname: '',
-      email: '',
       password: '',
+      email: '',
       roll_no: '',
+      branch:'',
       contact: '',
       clubName: ''
     },
@@ -44,7 +59,7 @@ const Register = () => {
   })
 
   return (
-    <div className="bg-Slate-300 py-6 sm:py-8 lg:py-12">
+    <div className="bg-Slate-300 py-6 sm:py-8 lg:py-12 cursor-pointer" onClick={voiceResponse}>
       <div className="mx-auto max-w-screen-2xl px-4 md:px-8">
         {/* text - start */}
         <div className="mb-10 md:mb-16">
@@ -114,7 +129,6 @@ const Register = () => {
               className="w-full rounded border bg-gray-50 px-3 py-2 text-gray-800 outline-none ring-indigo-300 transition duration-100 focus:ring"
             />
           </div>
-
           <div>
             <label
               htmlFor="Roll-Number"
@@ -132,8 +146,41 @@ const Register = () => {
 
 
 
+          <div>
+            <label
+              htmlFor="Branch"
+              className="mb-2 inline-block text-sm text-gray-800 sm:text-base"
+            >
+              Branch*
+            </label>
+            <input
+              name="branch"
+              onChange={registerForm.handleChange}
+              value={registerForm.values.branch}
+              className="w-full rounded border bg-gray-50 px-3 py-2 text-gray-800 outline-none ring-indigo-300 transition duration-100 focus:ring"
+            />
+          </div>
 
 
+
+
+
+          <div>
+            <label
+              htmlFor="Contach Number"
+              className="mb-2 inline-block text-sm text-gray-800 sm:text-base"
+            >
+              Contact Number*
+            </label>
+            <input
+              name="contact"
+              onChange={registerForm.handleChange}
+              value={registerForm.values.contact}
+              className="w-full rounded border bg-gray-50 px-3 py-2 text-gray-800 outline-none ring-indigo-300 transition duration-100 focus:ring"
+            />
+          </div>
+
+          
 
           <div className="sm:col-span-2">
             <label

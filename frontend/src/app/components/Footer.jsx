@@ -1,18 +1,33 @@
+'use client';
 import React from 'react'
 
 const Footer = () => {
+
+    const speech = new SpeechSynthesisUtterance();
+
+    const voiceResponse = (e) => {
+      if(window.speechSynthesis.speaking){
+        window.speechSynthesis.cancel();
+        return;
+      }
+      console.log(e.target.innerText);
+      
+      speech.text = e.target.innerText;
+      window.speechSynthesis.speak(speech);
+    }
+  
     return (
-        <div>
+        <div onClick={voiceResponse}>
             <div className="bg-white pt-4 sm:pt-10 lg:pt-12">
                 <footer className="mx-auto max-w-screen-2xl px-4 md:px-8">
                     <div className="flex flex-col items-center justify-between gap-4 border-t border-b py-6 md:flex-row">
                         {/* nav - start */}
                         <nav className="flex flex-wrap justify-center gap-x-4 gap-y-2 md:justify-start md:gap-6">
                             <a
-                                href="/dsmnru"
+                                href="/"
                                 className="text-gray-500 transition duration-100 hover:text-indigo-500 active:text-indigo-600"
                             >
-                                About
+                                Home
                             </a>
                           
                         </nav>
@@ -86,7 +101,7 @@ const Footer = () => {
                         </div>
                         {/* social - end */}
                     </div>
-                    <div className="py-8 text-center text-sm text-gray-400">
+                    <div className="py-8 text-center text-sm text-gray-400 cursor-pointer">
                         © 2025 - Present Clubs and Committees.
                     </div>
                 </footer>

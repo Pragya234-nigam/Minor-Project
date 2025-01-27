@@ -6,6 +6,8 @@ const mySchema = new Schema({
     email: String,
     password: String,
     roll_no: String,
+    branch:String,
+    contact:String,
     clubName: String,
     createdAt: { type: Date, default: Date.now() }
 });

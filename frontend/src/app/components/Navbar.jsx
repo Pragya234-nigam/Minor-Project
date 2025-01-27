@@ -7,6 +7,19 @@ import { UserContext } from '../context/UserContext';
 
 const Navbar = () => {
 
+    const speech = new SpeechSynthesisUtterance();
+
+  const voiceResponse = (e) => {
+    if(window.speechSynthesis.speaking){
+      window.speechSynthesis.cancel();
+      return;
+    }
+    console.log(e.target.innerText);
+    
+    speech.text = e.target.innerText;
+    window.speechSynthesis.speak(speech);
+  }
+
     const router = useRouter();
     const { user, setUser } = useContext(UserContext);
 
@@ -23,8 +36,9 @@ const Navbar = () => {
         router.push('/');
     }
 
+
     return (
-        <div className='mx-auto max-w-screen-2xl px-4 md:px-8'>
+        <div className='mx-auto max-w-screen-2xl px-4 md:px-8' onClick={voiceResponse} >
             <header className="mb-8 flex items-center justify-between py-4 md:mb-12 md:py-8 xl:mb-16">
                 {/* logo - start */}
                 <Link
@@ -48,12 +62,12 @@ const Navbar = () => {
 
                 {/* nav - start */}
                 <nav className="hidden gap-12 lg:flex">
-                    <Link href="/" className="text-lg font-semibold text-indigo-500">
-                        Home
-                    </Link>
                     {user && (
                         <>
-                            <Link
+                             <Link href="/dsmnru" className="text-lg font-semibold text-indigo-500">
+                                About
+                              </Link>
+                             <Link
                                 href="/Events"
                                 className="text-lg font-semibold text-gray-600 transition duration-100 hover:text-indigo-500 active:text-indigo-700"
                             >
@@ -64,7 +78,7 @@ const Navbar = () => {
                                 href="/activity"
                                 className="text-lg font-semibold text-gray-600 transition duration-100 hover:text-indigo-500 active:text-indigo-700"
                             >
-                                Activites By Students
+                                Activities By Students
                             </Link>
 
                             <Link

@@ -1,14 +1,29 @@
+'use client';
 import React from 'react'
 
 const Dsmnru = () => {
+
+  const speech = new SpeechSynthesisUtterance();
+
+  const voiceResponse = (e) => {
+    if(window.speechSynthesis.speaking){
+      window.speechSynthesis.cancel();
+      return;
+    }
+    console.log(e.target.innerText);
+    
+    speech.text = e.target.innerText;
+    window.speechSynthesis.speak(speech);
+  }
+
   return (
     <>
       {/* hero - start */}
-      <div className="pb-6 sm:pb-8 lg:pb-12 px-16">
+      <div className="pb-6 sm:pb-8 lg:pb-12 px-16 cursor-pointer"> 
         <div className="mx-auto max-w-screen-2xl px-4 md:px-8">
           <section className="flex flex-col justify-between gap-6 sm:gap-10 md:gap-16 lg:flex-row ">
             {/* content - start */}
-            <div className="flex flex-col justify-center sm:text-center lg:py-12 lg:text-left xl:w-5/12 xl:py-24">
+            <div className="flex flex-col justify-center sm:text-center lg:py-12 lg:text-left xl:w-5/12 xl:py-24" onClick={voiceResponse}>
               <h1 className="mb-8 text-4xl font-bold text-black sm:text-5xl md:mb-12 md:text-6xl">
                 DSMNRU CLUBS AND COMMITTEES
               </h1>
@@ -42,7 +57,7 @@ const Dsmnru = () => {
           </section>
           <section className="flex flex-col justify-between gap-6 sm:gap-10 md:gap-16 lg:flex-row">
             {/* content - start */}
-            <div>
+            <div onClick={voiceResponse}>
               <h1 className="mb-8 pt-16 text-4xl font-bold text-black sm:text-5xl md:mb-12 md:text-6xl">
                 BOOK CLUBS
               </h1>
@@ -54,7 +69,7 @@ const Dsmnru = () => {
           </section>
           <section className="flex flex-col justify-between gap-6 sm:gap-10 md:gap-16 lg:flex-row">
             {/* content - start */}
-            <div>
+            <div onClick={voiceResponse}>
               <h1 className="mb-8 text-4xl font-bold text-black sm:text-5xl md:mb-12 md:text-6xl">
                 CULTURAL COMMITTEE
               </h1>
@@ -66,7 +81,7 @@ const Dsmnru = () => {
           </section>
           <section className="flex flex-col justify-between gap-6 sm:gap-10 md:gap-16 lg:flex-row">
             {/* content - start */}
-            <div>
+            <div onClick={voiceResponse}>
               <h1 className="mb-8 text-4xl font-bold text-black sm:text-5xl md:mb-12 md:text-6xl">
                 DEBATE CLUB / QUIZ CLUB
               </h1>
@@ -78,7 +93,7 @@ const Dsmnru = () => {
           </section>
           <section className="flex flex-col justify-between gap-6 sm:gap-10 md:gap-16 lg:flex-row">
             {/* content - start */}
-            <div>
+            <div onClick={voiceResponse}>
               <h1 className="mb-8 text-4xl font-bold text-black sm:text-5xl md:mb-12 md:text-6xl">
                 TECH CLUB
               </h1>
@@ -90,7 +105,7 @@ const Dsmnru = () => {
           </section>
           <section className="flex flex-col justify-between gap-6 sm:gap-10 md:gap-16 lg:flex-row">
             {/* content - start */}
-            <div>
+            <div onClick={voiceResponse}>
               <h1 className="mb-8 text-4xl font-bold text-black sm:text-5xl md:mb-12 md:text-6xl">
                 SCIENCE & TECHNOLOGY CLUB
               </h1>
@@ -102,7 +117,7 @@ const Dsmnru = () => {
           </section>
           <section className="flex flex-col justify-between gap-6 sm:gap-10 md:gap-16 lg:flex-row">
             {/* content - start */}
-            <div>
+            <div onClick={voiceResponse}>
               <h1 className="mb-8 text-4xl font-bold text-black sm:text-5xl md:mb-12 md:text-6xl">
                 SPORTS CELL
               </h1>
@@ -114,7 +129,7 @@ const Dsmnru = () => {
           </section>
           <section className="flex flex-col justify-between gap-6 sm:gap-10 md:gap-16 lg:flex-row">
             {/* content - start */}
-            <div>
+            <div onClick={voiceResponse}>
               <h1 className="mb-8 text-4xl font-bold text-black sm:text-5xl md:mb-12 md:text-6xl">
                 ENTREPRENEURSHIP DEVELOPMENT CELL
               </h1>
@@ -126,7 +141,7 @@ const Dsmnru = () => {
           </section>
           <section className="flex flex-col justify-between gap-6 sm:gap-10 md:gap-16 lg:flex-row">
             {/* content - start */}
-            <div>
+            <div onClick={voiceResponse}>
               <h1 className="mb-8 text-4xl font-bold text-black sm:text-5xl md:mb-12 md:text-6xl">
                 ALUMNI RELATIONS CELL
               </h1>
@@ -138,7 +153,7 @@ const Dsmnru = () => {
           </section>
           <section className="flex flex-col justify-between gap-6 sm:gap-10 md:gap-16 lg:flex-row">
             {/* content - start */}
-            <div>
+            <div onClick={voiceResponse}>
               <h1 className="mb-8 text-4xl font-bold text-black sm:text-5xl md:mb-12 md:text-6xl">
                 PLACEMENT CELL
               </h1>
