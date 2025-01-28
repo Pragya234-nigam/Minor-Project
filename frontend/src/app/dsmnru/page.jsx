@@ -16,6 +16,8 @@ const Dsmnru = () => {
     window.speechSynthesis.speak(speech);
   }
 
+  
+
   return (
     <>
       {/* hero - start */}

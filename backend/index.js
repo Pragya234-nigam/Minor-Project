@@ -2,6 +2,7 @@ const express = require('express');
 const app = express();
 const UserRouter = require('./routers/userRouter');
 const EventRouter = require('./routers/eventRouter');
+const UtilRouter = require('./routers/utilRouter');
 const cors = require('cors');
 const port = 5000;
 const Users = require('./models/userModel');
@@ -12,6 +13,7 @@ app.use(express.json());
 app.use(cors());
 app.use('/user', UserRouter);
 app.use('/event', EventRouter);
+app.use('/util', UtilRouter);
 
 app.get('/', (req, res) => {
     res.send('response from express');

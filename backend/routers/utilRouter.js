@@ -5,8 +5,8 @@ const nodemailer = require('nodemailer');
 
 const generatedOTP = {};
 
-const EMAIL_ID = '';
-const EMAIL_PASSWORD = '';
+const EMAIL_ID = 'dsmnruclubs234@gmail.com';
+const EMAIL_PASSWORD = 'bgatejczeafozggu';
 
 // initialize multer
 const fileStorage = multer.diskStorage({
@@ -25,8 +25,8 @@ const uploader = multer({storage : fileStorage});
 const mailConfig = {
     service : 'gmail',
     auth: {
-        user: process.env.EMAIL_ID,
-        pass: process.env.EMAIL_PASSWORD,
+        user: EMAIL_ID,
+        pass: EMAIL_PASSWORD,
     }
 };
 const transporter = nodemailer.createTransport(mailConfig);
@@ -66,18 +66,17 @@ router.post('/sendotp', (req, res) => {
 })
 
 router.post('/sendmail', (req, res) => {
-    const {recipient, subject, message} = req.body;
+    const {email, subject, message} = req.body;
     
     transporter.sendMail({
-        from : process.env.EMAIL_ID,
-        to : req.body.email,
-        subject : 'OTP for Password Reset',
-        html: `<p> OTP for password reset is <b>${otp}</b> </p>`
+        from : EMAIL_ID,
+        to : email,
+        subject : subject,
+        html: message
     })
     .then((info) => {
         return res.status(201).json(
             {
-                msg: "OTP Sent",
                 info: info.messageId,
                 preview: nodemailer.getTestMessageUrl(info)
             }
