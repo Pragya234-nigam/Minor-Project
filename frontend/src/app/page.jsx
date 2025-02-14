@@ -38,7 +38,7 @@ const Home = () => {
               CLUBS AND COMMITTEES
             </p>
             <h1 className="mb-8 text-center text-4xl font-bold text-white sm:text-5xl md:mb-12 md:text-6xl">
-              Welcome to Clubs and Committess
+              Welcome to Clubs and Committees
             </h1>
             <div className="flex w-full flex-col gap-2.5 sm:flex-row sm:justify-center">
               <a

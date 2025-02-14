@@ -66,7 +66,7 @@ const Members = () => {
                                 {
                                     students.map(user => {
                                         return (
-                                            <tr>
+                                            <tr key={user._id}>
                                                 <td className="px-4 py-3">{user.firstname}</td>
                                                 <td className="px-4 py-3">{user.lastname}</td>
                                                 <td className="px-4 py-3">{user.email}</td>

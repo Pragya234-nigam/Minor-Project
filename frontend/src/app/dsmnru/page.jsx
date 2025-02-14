@@ -29,7 +29,7 @@ const Dsmnru = () => {
               <h1 className="mb-8 text-4xl font-bold text-black sm:text-5xl md:mb-12 md:text-6xl">
                 DSMNRU CLUBS AND COMMITTEES
               </h1>
-              <p className="text-gray-700">
+              <p className="text-gray-700 text-justify">
                 At DSMNRU, we nurture well-rounded individuals who excel both academically and in their personal pursuits. Our campus vibrates with energy from a diverse array of student-led clubs and committees, each offering unique opportunities to grow and explore. From professional development in fields like consulting and finance to creative expression through theatre and music, there’s a space for every passion and interest to flourish. Our clubs span a wide spectrum, covering areas such as entrepreneurship, sustainability, public policy, while the committees form the backbone of campus life shaping the DSMNRU experience and offering valuable leadership opportunities.
               </p>
               <h1 className="mb-3 mt-4 text-4xl font-bold text-black sm:text-4xl md:mb-2 md:text-2xl">Clubs and Committees are given below:</h1>
